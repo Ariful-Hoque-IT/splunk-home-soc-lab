@@ -1,0 +1,21 @@
+# =============================================
+# Splunk inputs.conf Example
+# For Home SOC Lab - Splunk Project (MSc)
+# =============================================
+
+# 1. Monitor Windows Firewall log file
+[monitor://C:\Windows\System32\LogFiles\Firewall\pfirewall.log]
+disabled = false
+sourcetype = pfirewall.log
+index = main
+followTail = 0
+crcSalt = <SOURCE>
+ignoreOlderThan = 7d
+
+# 2. Monitor Windows Security Event Log (includes EventCode 4688)
+[WinEventLog://Security]
+disabled = false
+index = main
+start_from = oldest
+renderXml = false
+evt_resolve_ad_obj = false
