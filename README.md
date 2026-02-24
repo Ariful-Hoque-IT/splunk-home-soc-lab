@@ -1,5 +1,4 @@
 # splunk-home-soc-lab
-
 # Home SOC Lab: Building Foundational Monitoring Skills with Splunk  
 **Created during MSc programme**
 
