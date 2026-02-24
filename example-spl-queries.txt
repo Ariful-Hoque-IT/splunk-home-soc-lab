@@ -1,0 +1,17 @@
+
+
+1. Repeated Blocked Outbound Connections (suspicious activity)
+index=main sourcetype="pfirewall.log" action=BLOCK direction=Outbound
+| stats count by src_ip dest_ip dest_port
+| where count > 5
+| sort -count
+
+2. Process Creation Events (EventCode 4688)
+index=main EventCode=4688
+| table _time host New_Process_Name Creator_Process_Name Process_Command_Line
+| sort -_time
+
+3. Simple Correlation (Process + Firewall Block)
+index=main (EventCode=4688 OR sourcetype="pfirewall.log" action=BLOCK)
+| stats values(action) as firewall_action values(New_Process_Name) as process by _time host dest_ip
+| search firewall_action=BLOCK
