@@ -1,6 +1,6 @@
 # splunk-home-soc-lab
 # Home SOC Lab: Building Foundational Monitoring Skills with Splunk  
-**Created during MSc programme**
+**Created during MSc programme — March 2024**
 
 Simple virtual lab to apply Network Security and Incident Response concepts.
 
@@ -12,34 +12,25 @@ Simple virtual lab to apply Network Security and Incident Response concepts.
 - Used SPL to detect suspicious activity (repeated blocked outbound connections)  
 - Created one simple dashboard for visualisation  
 
+**Completed:** March 2024
+
 ### Quick Setup (30 minutes)
 
-**1. Lab VMs (VMware)**
-- VM1: Windows 10/11 → Endpoint (run the PowerShell script here)
-- VM2: Windows → Splunk Server (install Splunk Enterprise Free)
+**1. Lab VMs (VMware)**  
+- VM1: Windows 10/11 → Endpoint  
+- VM2: Windows → Splunk Server
 
-**2. On Endpoint VM (as Administrator)**
-- Double-click `enable-windows-firewall-logging.ps1` or run in PowerShell
+**2. On Endpoint VM** → Run `enable-windows-firewall-logging.ps1` as Administrator
 
-**3. On Splunk Server**
-- Install Splunk Enterprise Free
-- Add data:
-  - Windows Event Log → Security channel
-  - Monitor file → `C:\Windows\System32\LogFiles\Firewall\pfirewall.log` (sourcetype = pfirewall.log)
-- Or just copy `splunk-inputs.conf.example` content into `C:\Program Files\Splunk\etc\system\local\inputs.conf` and restart Splunk
+**3. On Splunk Server** → Install Splunk Free + use `splunk-inputs.conf.example`
 
-**4. Open Splunk → Search & Reporting**
-- Paste queries from `example-spl-queries.txt`
-- Import the dashboard XML (Dashboards → Create New → Edit Source → paste)
+**4. Test the queries** from `example-spl-queries.txt`
 
-**5. Test**
-- From Endpoint: try `ping 8.8.8.8` or open browser to random sites → you will see blocks in Splunk
+**5. Import** `basic-dashboard.xml`
 
-### Files in this repo
-- `enable-windows-firewall-logging.ps1` → Run on endpoint
-- `splunk-inputs.conf.example` → Splunk configuration
-- `example-spl-queries.txt` → Ready to copy-paste
-- `basic-dashboard.xml` → One simple dashboard
+Perfect small project for CV / LinkedIn / MSc portfolio.
+
+Made with ❤️ during MSc — March 2024
 
 Perfect for CV, LinkedIn, or portfolio.  
 Small, clean, and exactly matches my MSc project description.
